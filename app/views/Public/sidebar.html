@@ -1,0 +1,18 @@
+<!-- 侧边导航栏 -->
+<ul class="nav nav-pills nav-stacked sidebar">
+	#{list items:second_menu, as:'item'}
+		<li role="presentation" class="third-menu-toggle ${item.is_click ? 'active' : ''}">
+			<a href="${item.rel_url}">${item.menu_name}</a>
+			<!-- 三级展开栏 -->
+			#{if item.child_menu}
+				<ul class="dropdown-menu third-menu">
+					#{list items:item.child_menu, as:'item'}
+					<li class="${item.is_click ? 'active' : ''}">
+						<a href="${item.rel_url}">${item.menu_name}</a>
+					</li>
+					#{/list}
+				</ul>
+			#{/if}
+		</li>
+	#{/list}
+</ul>	

@@ -1,0 +1,130 @@
+/*全局样式初始化*/
+body,html{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: Arial, 微软雅黑;
+}
+.top{
+	height: 50px;
+}
+.body{
+	position: absolute;
+	top: 50px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.main-col-right{
+	margin-left: 200px;
+}
+.main{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.main-top-offset{
+	top: 30px;	
+}
+.full-height{
+	position: relative;
+	height: 100%;
+}
+
+/*顶部导航栏*/
+.top-nav{
+	background-color: #CCC;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+}
+.top-nav .navbar-brand{
+	min-width: 200px;
+	text-align: center;
+}
+.top-nav .navbar-text>a{
+	padding: 0 5px;
+}
+.top-nav .navbar-nav>li>a{
+	padding: 15px 30px;
+}
+.top-nav .navbar-text,
+.top-nav .navbar-text>a,
+.top-nav .navbar-nav>li>a{
+	color: #333;
+}
+.top-nav .navbar-text>a:focus,
+.top-nav .navbar-nav>li>a:hover,
+.top-nav .navbar-nav>li>a:focus,
+.top-nav .navbar-nav>li>a:hover{
+	color: #000;
+}
+.top-nav .first-menu>li>a{
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+.top-nav .first-menu>.active>a,
+.top-nav .first-menu>.active>a:focus,
+.top-nav .first-menu>.active>a:hover{
+	background-color: #666;
+	color: #fff;
+}
+
+/*侧边二级导航栏*/
+.sidebar{
+	float: left;
+	vertical-align: top;
+	width: 200px;
+	height: 100%;
+	border-radius: 0;
+	background-color: #eee;
+	padding: 30px 0;
+}
+.sidebar>li>a{
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+}
+.sidebar>li>a:focus,
+.sidebar>li>a:hover{
+	color: #000;
+	background-color: #fefefe;
+}
+.sidebar>li.active>a,
+.sidebar>li.active>a:focus,
+.sidebar>li.active>a:hover{
+	background-color: #fff;
+	color: #333;
+}
+
+/*侧边栏展开三级导航栏*/
+.third-menu{
+	left: 100%;
+	top: 0;
+}
+.third-menu>.active>a,
+.third-menu>.active>a:focus,
+.third-menu>.active>a:hover{
+	background-color: #eee;
+	color: #333;
+}
+
+/*主窗口顶部通知栏*/
+.notice-bar{
+	margin: 0;
+	height: 30px;
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: center;
+}
+.notice-bar>.text-emphasize{
+	margin: 0 5px;
+	font-weight: 600;
+	color: #f00;
+}
+.notice-bar>a{
+	margin: 0 2px;
+	font-weight: 600;
+}

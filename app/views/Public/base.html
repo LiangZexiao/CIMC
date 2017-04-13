@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="UTF-8">
+        <!-- <link rel="stylesheet" href="@{'/public/stylesheets/bootstrap.min.css'}"> -->
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/base.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    </head>
+    <body>
+        <div class="top">
+            #{include 'Public/nav.html' /}
+        </div>
+        <div class="body">
+            #{if second_menu}
+                #{include 'Public/sidebar.html' /}
+            #{/if}
+            <div class="full-height #{if second_menu}main-col-right#{/if}">
+                <!-- 异常报警通知栏 -->
+                #{if abnormal_num != null}
+                    #{include 'Public/noticebar.html' /}
+                #{/if}
+                
+                <!-- 页面内容 -->
+                <div class="main #{if abnormal_num != null}main-top-offset#{/if}">
+                    #{doLayout /}                    
+                </div>
+            </div>
+        </div>
+
+        <!-- <script src="@{'/public/javascripts/jquery.min.js'}" type="text/javascript"></script> -->
+        <!-- <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript"></script> -->
+        <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.bootcss.com/echarts/3.5.0/echarts.min.js"></script>
+        <script src="https://cdn.bootcss.com/echarts/3.5.0/extension/bmap.min.js"></script>
+        <script src="@{'/public/javascripts/menu.js'}"></script>
+        #{get 'moreScripts' /}
+    </body>
+</html>

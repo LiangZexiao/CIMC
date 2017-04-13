@@ -1,0 +1,8 @@
+# 复制该模板文件另存为db.conf，存放在/conf目录下，并在db.conf中配置个人本地数据库信息
+# 个人配置的db.conf文件不要加入git版本控制中
+
+# mysql数据库配置
+db.url=jdbc:mysql://localhost/database_name
+db.driver=com.mysql.jdbc.Driver
+db.user=root
+db.pass=123456

@@ -1,0 +1,230 @@
+#{extends 'Public/base.html' /}
+#{set title:'实时位置分布' /}
+
+<div id="echartsArea" style="width: 100%; height: 100%;"></div>
+
+#{set 'moreScripts'}
+<script src="@{'/public/javascripts/china.js'}"></script>
+<script>
+var myChart;	//页面上的echart容器
+$(function(){
+	myChart = echarts.init(document.getElementById('echartsArea'));
+	myChart.showLoading();
+	// 地图初始化
+    myChart.setOption(option = {
+        backgroundColor: '#404a59',
+        title : {
+            text: '全国设备位置实时分布',
+            left: 'center',
+            top: 10,
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        legend: {
+            left: 50,
+            top: 30,
+            orient: 'verhical',
+            data: ['普通箱式货运车辆、重卡车辆', '普通集装箱', '冷箱，包括陆运和海运', '罐式车辆、储罐', '特种工程车辆'],
+            textStyle: {
+                color: '#ccc'
+            }
+        },
+        geo: {
+            map: 'china',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    areaColor: '#323c48',
+                    borderColor: '#111'
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
+                }
+            }
+        },
+        series: [{
+            name: '普通箱式货运车辆、重卡车辆',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 3,
+            large: true,
+            itemStyle: {
+                normal: {
+                    shadowBlur: 2,
+                    color: '#00F2FF'
+                }
+            },
+        }, {
+            name: '普通集装箱',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 3,
+            large: true,
+            itemStyle: {
+                normal: {
+                    shadowBlur: 2,
+                    color: '#00FF2E'
+                }
+            },
+        }, {
+            name: '冷箱，包括陆运和海运',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 3,
+            large: true,
+            itemStyle: {
+                normal: {
+                    shadowBlur: 2,
+                    color: '#005DFF'
+                }
+            },
+        }, {
+            name: '罐式车辆、储罐',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 3,
+            large: true,
+            itemStyle: {
+                normal: {
+                    shadowBlur: 2,
+                    color: '#B900FF'
+                }
+            },
+        }, {
+            name: '特种工程车辆',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbolSize: 3,
+            large: true,
+            itemStyle: {
+                normal: {
+                    shadowBlur: 2,
+                    color: '#FFED00'
+                }
+            },
+        }]
+    });
+    
+	// 测试数据
+	updateData({
+	    "1": [
+	        [116.46, 39.92],
+	        [118.78, 32.04],
+	        [116.57, 43.87],
+	        [121.48, 31.22],
+	        [104.06, 30.67],
+	        [126.63, 45.75],
+	        [123.38, 31.8],
+	        [117.27,31.86],
+	        [114.31, 30.52],
+	        [114.48, 38.03],
+	        [114.2, 39.13],
+	        [112.53, 37.87],
+	        [108.95, 39.27],
+	        [108.33, 22.84],
+	        [116.89, 28.68],
+	        [117, 36.65]    
+	    ],
+	    "2": [
+	        [105.46, 39.92],
+	        [118.78, 32.04],
+	        [126.57, 43.87],
+	        [111.48, 31.22],
+	        [104.06, 30.67],
+	        [126.63, 45.75],
+	        [125.38, 41.8],
+	        [117.27,31.86],
+	        [114.31, 30.52],
+	        [124.48, 38.03],
+	        [117.2, 39.13],
+	        [112.53, 37.87],
+	        [102.95, 34.27],
+	        [108.33, 22.74],
+	        [115.89, 28.68],
+	        [117, 36.65]    
+	    ],
+	    "3": [
+	        [116.46, 39.92],
+	        [108.78, 32.04],
+	        [126.57, 43.87],
+	        [121.48, 38.22],
+	        [104.06, 30.67],
+	        [126.63, 45.75],
+	        [123.48, 41.8],
+	        [117.27,31.86],
+	        [124.31, 30.52],
+	        [114.48, 38.03],
+	        [117.2, 39.13],
+	        [112.53, 37.87],
+	        [108.95, 34.27],
+	        [118.33, 22.84],
+	        [115.89, 28.68],
+	        [117, 36.65]    
+	    ],
+	    "4": [
+	        [116.46, 39.92],
+	        [118.78, 32.04],
+	        [126.57, 43.87],
+	        [121.48, 31.22],
+	        [104.06, 30.67],
+	        [124.63, 45.75],
+	        [103.38, 41.8],
+	        [127.27,31.86],
+	        [114.31, 30.52],
+	        [113.48, 38.03],
+	        [117.2, 39.13],
+	        [112.53, 37.87],
+	        [108.95, 34.27],
+	        [108.33, 22.84],
+	        [115.89, 28.78],
+	        [117, 36.65]    
+	    ],
+	    "5": [
+	        [116.46, 39.92],
+	        [98.78, 32.04],
+	        [126.57, 43.87],
+	        [121.48, 21.22],
+	        [114.06, 30.67],
+	        [116.63, 45.75],
+	        [123.38, 41.8],
+	        [117.27,31.86],
+	        [114.31, 30.52],
+	        [104.48, 38.03],
+	        [117.2, 39.13],
+	        [112.53, 37.87],
+	        [108.95, 37.27],
+	        [108.33, 22.84],
+	        [115.89, 28.68],
+	        [117, 36.65]    
+	    ]
+	})
+    myChart.hideLoading();
+})
+function updateData(data) {
+    myChart.setOption(option = {
+        series: [{
+            name: '普通箱式货运车辆、重卡车辆',
+            data: data['1']
+        }, {
+            name: '普通集装箱',
+            data: data['2']
+        }, {
+            name: '冷箱，包括陆运和海运',
+            data: data['3']
+        }, {
+            name: '罐式车辆、储罐',
+            data: data['4']
+        }, {
+            name: '特种工程车辆',
+            data: data['5']
+        }]
+    });
+}
+
+</script>
+#{/set}

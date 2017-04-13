@@ -1,0 +1,28 @@
+<!-- 顶部导航 -->
+<nav class="navbar navbar-default top-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        	<!-- 后期替换成logo -->
+            <a class="navbar-brand" href="">CIMC</a>
+        </div>
+        <div class="collapse navbar-collapse">
+        	<!-- 一级菜单栏 -->
+            <ul id="firstMenu" class="nav navbar-nav first-menu">
+				#{list items:first_menu, as:'item'}
+              		<li class="${item.is_click ? 'active' : ''}"><a href="${item.rel_url}">${item.menu_name}</a></li>
+              	#{/list}
+            </ul>
+            <!-- 登录登出按钮组 -->
+            <p class="navbar-text navbar-right">
+	           	#{if is_login}
+	                <a href="#">账号登录</a>
+	                <a href="#">注册</a>
+	            #{/if}
+	            #{else}
+	            	账号管理 |
+	                <a href="#">登出</a>
+	            #{/else}            
+           </p>
+        </div>
+    </div>
+</nav>

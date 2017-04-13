@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings/
+tmp/
+documentation/
+docviewer/
+eclipse/
+test-result/

@@ -1,0 +1,8 @@
+<p class='notice-bar'>
+	#{if abnormal_num == 0}
+		当前<span class="text-emphasize">无异常报警事件</span>发生
+	#{/if}
+	#{else}
+		当前出现了<span class="text-emphasize">${abnormal_num}个异常报警事件</span>，请及时处理，<a href="">点击查看</a>
+	#{/else}
+</p>
